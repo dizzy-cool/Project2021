@@ -69,7 +69,7 @@
 
 <!-- content srart -->
 <div class="am-g am-g-fixed blog-fixed">
-    <div class="am-u-md-8 am-u-sm-12" v-show="status=='blog_list'"v-cloak>
+    <div class="am-u-md-8 am-u-sm-12" v-show="status!='blog_edit' && status!='blog_new'" v-cloak>
          <article class="am-g blog-entry-article" v-for="blog in blog_list">
             <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
                 <img src="assets/i/f19.jpg" alt="" class="am-u-sm-12">
@@ -224,9 +224,6 @@
               },
               into_admin_status:function(){
                 this.status = 'blog_admin';//将当前状态置为管理状态,一定要使用this
-              },
-              into_create_status:function(){
-                this.status = 'blog_create';//将当前状态置为添加状态,一定要使用this
               },
               blog_delete:function(blog_id){
                 $.ajax({
